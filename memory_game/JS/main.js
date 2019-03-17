@@ -11,22 +11,31 @@ console.log("User flipped " + cardFour);
 
 alert('Hello, Friends.')
 */ 
-
+//array for cards
 var cards=["queen","queen","king","king"];
-var cardsInplay=[];
-var cardOne = cards[0];
-cardsInplay.push(cardOne);
-var cardTwo = cards[3];
-cardsInplay.push(cardTwo);
+var cardsInPlay=[];
 
-if (cardsInplay.length == 2){
-	console.log(cardsInplay.length);
-	if (cardsInplay[0] == cardsInplay[1]){
-		alert("You found a match!");
-	}
+var checkForMatch = function(){
+	if (cardsInPlay[0] === cardsInPlay[1]){
+  console.log("You found a match!");
+	} 
 	else {
-		alert("Sorry, try again.")
+  console.log("Sorry, try again.");
 	}
 }
 
-console.log("User flipped " + cardsInplay);
+
+var flipCard = function(cardId){
+	console.log("User flipped " + cards[cardId]);
+	cardsInPlay.push(cards[cardId]);	
+	
+	checkForMatch();
+	
+}
+flipCard(0);
+flipCard(2);
+
+
+
+
+
