@@ -19,7 +19,7 @@ var cards=[
 	{
 	rank:"queen",
 	suit:"hearts",
-	cardImage:"images/queen-of-heats.png"
+	cardImage:"images/queen-of-hearts.png"
 	},
 	{
 	rank:"queen",
@@ -29,22 +29,22 @@ var cards=[
 	{
 	rank:"king",
 	suit:"hearts",
-	cardImage:"image/king-hearts.png"
+	cardImage:"images/king-of-hearts.png"
 	},
 	{
 	rank:"king",
 	suit:"diamonds",
-	cardImage:"image/king-of-diamonds.png"
+	cardImage:"images/king-of-diamonds.png"
 	}
 ];
 var cardsInPlay=[];
 //check function if cards match
 var checkForMatch = function(){
 	if (cardsInPlay[0] === cardsInPlay[1]){
-  console.log("You found a match!");
+  alert("You found a match!");
 	} 
 	else {
-  console.log("Sorry, try again.");
+  alert("Sorry, try again.");
 	}
 }
 
@@ -56,6 +56,8 @@ var flipCard = function(){
 	cardsInPlay.push(cards[cardId].rank);
 	console.log(cards[cardId].cardImage);
 	console.log(cards[cardId].suit);
+
+	this.setAttribute('src',cards[cardId].cardImage)
 
 	//sends to check for match function by card size
 	if (cardsInPlay.length ===2){
@@ -71,9 +73,9 @@ var createBoard = function(){
 		and stores into variable cardElement*/
 		var cardElement= document.createElement('img');
 		//adding method to cardElement to add back of card
-		cardElement.setAtribute('src' , "images/back.png");
-		cardElement.setAtribute('data-id' , i);
-		cardElement.addEventlistener('click' , flipCard);
+		cardElement.setAttribute('src' , "images/back.png");
+		cardElement.setAttribute('data-id' , i);
+		cardElement.addEventListener('click' , flipCard);
 		//cardElement.appendChild('game-board');
 		document.getElementById('game-board').appendChild(cardElement);
 		}
